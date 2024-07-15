@@ -6,14 +6,11 @@ public class Starter2 : MonoBehaviour
 {
     public float MAX_VELOCITY = 100f; // CONSTANT
     public float TIME_TO_REACH = 20f; // CONSTANT
+    public float turnSpeed = 100f; // Speed at which the car turns
     private float currVelocity;
     private float currTime;
     private float a;
     private float moveSpeed;
-    private float horizontalSpeed;
-    public float smoothTime = 0.1f; // Time for smoothing
-
-    private Vector3 velocity = Vector3.zero; // Velocity for smoothing
 
     private Rigidbody playerRigidBody;
 
@@ -30,30 +27,54 @@ public class Starter2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float verticalInput = Input.GetAxisRaw("Vertical");
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = 0f;
+        if (Input.GetKey(KeyCode.W))
+        {
+            verticalInput = 1f;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            verticalInput = -1f;
+        }
+
+        float horizontalInput = 0f;
+        if (Input.GetKey(KeyCode.A))
+        {
+            horizontalInput = -1f;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            horizontalInput = 1f;
+        }
 
         if (currTime < TIME_TO_REACH) // Ensure we only accelerate for the specified time
         {
             currTime += Time.deltaTime;
             a = (MAX_VELOCITY - currVelocity) / (TIME_TO_REACH - currTime);
             currVelocity += a * Time.deltaTime;
-            moveSpeed = currVelocity * verticalInput;
+            moveSpeed = currVelocity;
         }
         else
         {
             // Once we reach the maximum velocity, maintain it
-            moveSpeed = MAX_VELOCITY * verticalInput;
+            moveSpeed = MAX_VELOCITY;
         }
 
-        // Calculate horizontal speed
-        horizontalSpeed = MAX_VELOCITY * horizontalInput;
+        // Calculate movement direction
+        Vector3 moveDirection = transform.forward * verticalInput * moveSpeed;
 
-        // Smoothly move the player
-        Vector3 targetVelocity = new Vector3(horizontalSpeed, 0, moveSpeed);
-        playerRigidBody.velocity = Vector3.SmoothDamp(playerRigidBody.velocity, targetVelocity, ref velocity, smoothTime);
+        // Apply movement
+        playerRigidBody.velocity = moveDirection;
 
-        // Optionally, log the current move speed for debugging purposes
-        Debug.Log("Move Speed: " + moveSpeed + ", Horizontal Speed: " + horizontalSpeed);
+        // Apply rotation for turning
+        if (horizontalInput != 0) // Only turn if there is horizontal input
+        {
+            float turn = horizontalInput * turnSpeed * Time.deltaTime;
+            Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
+            playerRigidBody.MoveRotation(playerRigidBody.rotation * turnRotation);
+        }
+
+        // Optionally, log the current move speed and rotation for debugging purposes
+        Debug.Log("Move Speed: " + moveSpeed + ", Rotation: " + playerRigidBody.rotation.eulerAngles);
     }
 }
