@@ -12,6 +12,10 @@ public class LukePlayerController : MonoBehaviour
     public float handling = 0f;
     public GameObject player;
 
+    public Transform groundCheckPoint;
+    public LayerMask GroundLayer;
+    private float groundCheckRadius = .2f;
+
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -22,9 +26,15 @@ public class LukePlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
     }
+
+    bool IsGrounded()
+    {
+        return GetComponent<Rigidbody>().velocity.y == 0;
+    }
     // Update is called once per frame
     void Update()
     {
+        bool grounded = IsGrounded();
         //currVelocity = playerRigidBody.velocity; // Initialize the current velocity
 
         if (currentTime < TIME_TO_REACH) // Ensure we only accelerate for the specified time
@@ -39,9 +49,7 @@ public class LukePlayerController : MonoBehaviour
             // Once we reach the maximum velocity, maintain it
             moveSpeed = MAX_VELOCITY * Input.GetAxisRaw("Vertical"); ;
         }
-        rb.AddForce(player.transform.forward * -1 * moveSpeed * Time.deltaTime);
-        
-        Debug.Log(currentVelocity);
+            rb.AddForce(player.transform.forward * -1 * moveSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(transform.up * handling * Time.deltaTime);
