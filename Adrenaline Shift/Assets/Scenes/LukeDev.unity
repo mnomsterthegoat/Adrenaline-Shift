@@ -434,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.6914988
+      value: 35.65
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -491,8 +491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf5dffde0ef62b4da21979d4a065ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_VELOCITY: 1000
-  TIME_TO_REACH: 10
+  MAX_VELOCITY: 100
+  TIME_TO_REACH: 3
   handling: 20
   player: {fileID: 453961746}
 --- !u!4 &453961748 stripped

@@ -32,16 +32,16 @@ public class LukePlayerController : MonoBehaviour
             currentTime += Time.deltaTime;
             acceleration = (MAX_VELOCITY - currentVelocity) / (TIME_TO_REACH - currentTime);
             currentVelocity += acceleration * Time.deltaTime;
-            moveSpeed = currentVelocity * Input.GetAxisRaw("Vertical");
+            moveSpeed = currentVelocity * Input.GetAxis("Vertical");
         }
         else
         {
             // Once we reach the maximum velocity, maintain it
             moveSpeed = MAX_VELOCITY * Input.GetAxisRaw("Vertical"); ;
         }
-
         rb.AddForce(player.transform.forward * -1 * moveSpeed * Time.deltaTime);
-
+        
+        Debug.Log(currentVelocity);
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(transform.up * handling * Time.deltaTime);

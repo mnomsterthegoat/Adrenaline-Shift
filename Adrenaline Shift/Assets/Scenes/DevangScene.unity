@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -317,7 +317,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &346356028
 PrefabInstance:
@@ -443,7 +443,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalScale.x
@@ -463,11 +463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.9
+      value: 55.69
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1129,6 +1129,7 @@ GameObject:
   - component: {fileID: 1990730835}
   - component: {fileID: 1990730834}
   - component: {fileID: 1990730833}
+  - component: {fileID: 1990730836}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1194,14 +1195,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990730832}
-  m_LocalRotation: {x: 0.0015153671, y: 0.9847703, z: -0.17364155, w: 0.008594074}
-  m_LocalPosition: {x: 1, y: 10.8, z: 74.23}
+  m_LocalRotation: {x: 0.00033640122, y: 0.95214236, z: -0.30553037, w: 0.00872017}
+  m_LocalPosition: {x: 0, y: 5, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 20, y: 179, z: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 35.579, y: 178.845, z: -0.33}
+--- !u!114 &1990730836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990730832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78fe2745d1bf0d149931d504ef42b6cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2125740924}
+  offset: {x: 0, y: 5, z: 6}
 --- !u!1 &2122232108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1254,7 @@ Transform:
   - {fileID: 1776951132}
   - {fileID: 127362735}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125740924 stripped
 GameObject:
@@ -1257,8 +1272,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.912436, y: 4.1944575, z: 14.592762}
-  m_Center: {x: -1.1792066, y: 1.1267228, z: 1.4667034}
+  m_Size: {x: 6.9348855, y: 2.5803807, z: 14.592762}
+  m_Center: {x: -0.30192882, y: 1.9337614, z: 1.4667034}
 --- !u!54 &2125740926
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1275,17 +1290,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &2125740928
-MeshCollider:
+--- !u!114 &2125740929
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125740924}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf5dffde0ef62b4da21979d4a065ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MAX_VELOCITY: 1000
+  TIME_TO_REACH: 5
+  handling: 20
+  player: {fileID: 2125740924}
