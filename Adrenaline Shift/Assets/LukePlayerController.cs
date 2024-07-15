@@ -9,6 +9,7 @@ public class LukePlayerController : MonoBehaviour
     private float currentTime;
     private float acceleration;
     private float moveSpeed;
+    public float handling = 0f;
     public GameObject player;
 
     private Rigidbody rb;
@@ -40,5 +41,14 @@ public class LukePlayerController : MonoBehaviour
         }
 
         rb.AddForce(player.transform.forward * -1 * moveSpeed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(transform.up * handling * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(transform.up * -1 * handling * Time.deltaTime);
+        }
     }
 }
