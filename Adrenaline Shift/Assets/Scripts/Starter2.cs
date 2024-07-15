@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class Starter2 : MonoBehaviour
 {
-    public float MAX_VELOCITY = 100f; // CONSTANT
-    public float TIME_TO_REACH = 20f; // CONSTANT
+    public float MAX_VELOCITY = 100f; // Maximum velocity
+    public float TIME_TO_REACH = 5f; // Time to reach maximum velocity
     public float turnSpeed = 100f; // Speed at which the car turns
-    private float currVelocity;
-    private float currTime;
-    private float a;
-    private float moveSpeed;
-
+    public float decelerationRate = 0.5f; // Rate at which the car decelerates
+    private float currVelocity = 0f; // Current velocity
+    private float moveSpeed; // Move speed
     private Rigidbody playerRigidBody;
 
     // Start is called before the first frame update
     void Start()
     {
-        currVelocity = 0f; // Initialize the current velocity
-        currTime = 0f;     // Initialize the current time
-        moveSpeed = 0f;    // Initialize the move speed
-
+        moveSpeed = 0f; // Initialize the move speed
         playerRigidBody = GetComponent<Rigidbody>();
     }
 
@@ -47,27 +42,38 @@ public class Starter2 : MonoBehaviour
             horizontalInput = 1f;
         }
 
-        if (currTime < TIME_TO_REACH) // Ensure we only accelerate for the specified time
+        // Calculate acceleration
+        if (verticalInput != 0 || horizontalInput != 0) // Accelerate when there is input
         {
-            currTime += Time.deltaTime;
-            a = (MAX_VELOCITY - currVelocity) / (TIME_TO_REACH - currTime);
-            currVelocity += a * Time.deltaTime;
-            moveSpeed = currVelocity;
+            if (currVelocity < MAX_VELOCITY)
+            {
+                currVelocity += (MAX_VELOCITY / TIME_TO_REACH) * Time.deltaTime;
+                if (currVelocity > MAX_VELOCITY)
+                {
+                    currVelocity = MAX_VELOCITY;
+                }
+            }
         }
-        else
+        else // Decelerate when there is no input
         {
-            // Once we reach the maximum velocity, maintain it
-            moveSpeed = MAX_VELOCITY;
+            if (currVelocity > 0)
+            {
+                currVelocity -= decelerationRate * Time.deltaTime * MAX_VELOCITY;
+                if (currVelocity < 0)
+                {
+                    currVelocity = 0;
+                }
+            }
         }
 
         // Calculate movement direction
-        Vector3 moveDirection = transform.forward * verticalInput * moveSpeed;
+        Vector3 moveDirection = transform.forward * verticalInput * currVelocity + transform.right * horizontalInput * currVelocity;
 
         // Apply movement
         playerRigidBody.velocity = moveDirection;
 
         // Apply rotation for turning
-        if (horizontalInput != 0) // Only turn if there is horizontal input
+        if (horizontalInput != 0) // Turn based on horizontal input
         {
             float turn = horizontalInput * turnSpeed * Time.deltaTime;
             Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
@@ -75,6 +81,6 @@ public class Starter2 : MonoBehaviour
         }
 
         // Optionally, log the current move speed and rotation for debugging purposes
-        Debug.Log("Move Speed: " + moveSpeed + ", Rotation: " + playerRigidBody.rotation.eulerAngles);
+        Debug.Log("Move Speed: " + currVelocity + ", Rotation: " + playerRigidBody.rotation.eulerAngles);
     }
 }
