@@ -9,7 +9,7 @@ public class Starter2 : MonoBehaviour
     public float turnSpeed = 100f; // Speed at which the car turns
     public float decelerationRate = 0.5f; // Rate at which the car decelerates
     private float currVelocity = 0f; // Current velocity
-    private float moveSpeed; // Move speed
+    private float moveSpeed;
     private Rigidbody playerRigidBody;
 
     // Start is called before the first frame update
