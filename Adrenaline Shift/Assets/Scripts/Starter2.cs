@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Starter2 : MonoBehaviour
 {
-    public float MAX_VELOCITY = 100f; // Maximum velocity
+    public float MAX_VELOCITY = 50f; // Maximum velocity
     public float TIME_TO_REACH = 5f; // Time to reach maximum velocity
     public float turnSpeed = 50f; // Speed at which the car turns
     public float decelerationRate = 0.5f; // Rate at which the car decelerates
     public float friction = 0.1f; // Friction factor to slow down the car gradually
     public float drag = 0.1f; // Drag factor to reduce velocity over time
+    private float boosterFuel = 100f;
 
     // Fields for the first effect
     public GameObject effectPrefab; // Reference to the first effect prefab
@@ -93,7 +94,13 @@ public class Starter2 : MonoBehaviour
             if (currVelocity < MAX_VELOCITY)
             {
                 currVelocity += (MAX_VELOCITY / TIME_TO_REACH) * Time.deltaTime;
-                if (currVelocity > MAX_VELOCITY)
+
+                if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
+                {
+                    currVelocity += 5f * Time.deltaTime;
+                    boosterFuel -= 10f * Time.deltaTime;
+                }
+                else if (currVelocity > MAX_VELOCITY)
                 {
                     currVelocity = MAX_VELOCITY;
 
@@ -103,6 +110,10 @@ public class Starter2 : MonoBehaviour
                         PlaySound(maxSpeedSound);
                         isMaxSpeedSoundPlaying = true;
                     }
+                }
+                if (currVelocity > 100)
+                {
+                    currVelocity = 100;
                 }
             }
         }
