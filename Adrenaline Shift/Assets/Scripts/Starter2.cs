@@ -98,12 +98,12 @@ public class Starter2 : MonoBehaviour
         playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
 
         // Apply rotation for turning
-        if (horizontalInput != 0 && verticalInput != 0) // Turn based on horizontal input
-        {
+   // Turn based on horizontal input
+        
             float turn = horizontalInput * turnSpeed * Time.deltaTime;
             Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
             playerRigidBody.MoveRotation(playerRigidBody.rotation * turnRotation);
-        }
+        
 
         // Control the particle system based on velocity
         if (currVelocity > 0)
