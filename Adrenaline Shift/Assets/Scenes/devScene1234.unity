@@ -37475,6 +37475,10 @@ MonoBehaviour:
   effectScale2: {x: 1, y: 1, z: 1}
   IsFollowCar: 0
   moveParticleSystem: {fileID: 0}
+  idleSound: {fileID: 0}
+  movingSound: {fileID: 0}
+  delayedMovingSound: {fileID: 0}
+  maxSpeedSound: {fileID: 0}
 --- !u!65 &543423193
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79615,15 +79619,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -79667,7 +79671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_Name
