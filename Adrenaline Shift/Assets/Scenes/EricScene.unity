@@ -450,6 +450,10 @@ MonoBehaviour:
   effectScale2: {x: 4, y: 4, z: 4}
   IsFollowCar: 1
   moveParticleSystem: {fileID: 6580464515710990385, guid: bed88ee90334d4f099c3c16529bd3b96, type: 3}
+  idleSound: {fileID: 8300000, guid: 3c1c130f6e1be75418d305f8e478e0f0, type: 3}
+  movingSound: {fileID: 8300000, guid: e1c2366a3a738e34bac7ebf0c85b3ab8, type: 3}
+  delayedMovingSound: {fileID: 8300000, guid: f90d2412cefca404cba80202baddb8d1, type: 3}
+  maxSpeedSound: {fileID: 8300000, guid: 75fa27e467267c74f91f1f6f4e74ff88, type: 3}
 --- !u!1 &543133925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d3c8d5388dd1a4f9cada4b9e1c9269f7, type: 3}

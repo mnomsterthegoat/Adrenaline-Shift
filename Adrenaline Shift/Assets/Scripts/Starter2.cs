@@ -29,9 +29,19 @@ public class Starter2 : MonoBehaviour
     // Reference to the particle system attached to the car
     public ParticleSystem moveParticleSystem;
 
+    // Fields for sound effects
+    public AudioClip idleSound; // Sound effect for idling
+    public AudioClip movingSound; // Sound effect for moving
+    public AudioClip delayedMovingSound; // Sound effect for delayed moving
+    public AudioClip maxSpeedSound; // Sound effect for reaching max speed
+
+    private AudioSource audioSource;
     private float currVelocity = 0f; // Current velocity
     private Rigidbody playerRigidBody;
     private Coroutine effectCoroutine;
+    private bool isMaxSpeedSoundPlaying = false;
+    private bool isMovingSoundPlaying = false;
+    private bool hasDelayedMovingSoundPlayed = false; // Ensure delayed moving sound plays only once
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +50,18 @@ public class Starter2 : MonoBehaviour
         playerRigidBody.drag = drag; // Set the drag on the Rigidbody
         playerRigidBody.useGravity = true; // Ensure gravity is applied
 
+        audioSource = gameObject.AddComponent<AudioSource>();
+
         // Start the coroutine to continuously play the effects
         effectCoroutine = StartCoroutine(PlayEffectsContinuously());
+
+        // Start the idle sound effect
+        if (idleSound != null)
+        {
+            audioSource.clip = idleSound;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
     }
 
     // Update is called once per frame
@@ -76,6 +96,13 @@ public class Starter2 : MonoBehaviour
                 if (currVelocity > MAX_VELOCITY)
                 {
                     currVelocity = MAX_VELOCITY;
+
+                    // Play max speed sound effect if not already playing
+                    if (maxSpeedSound != null && !isMaxSpeedSoundPlaying)
+                    {
+                        PlaySound(maxSpeedSound);
+                        isMaxSpeedSoundPlaying = true;
+                    }
                 }
             }
         }
@@ -92,10 +119,6 @@ public class Starter2 : MonoBehaviour
         }
 
         // Calculate movement direction
-        
-
-        // Apply movement and maintain Y velocity (gravity)
-
         if (Input.GetKey(KeyCode.W))
         {
             Vector3 moveDirection = transform.forward * -1 * currVelocity;
@@ -109,12 +132,9 @@ public class Starter2 : MonoBehaviour
         }
 
         // Apply rotation for turning
-        // Turn based on horizontal input
-
         float turn = horizontalInput * turnSpeed * Time.deltaTime;
-            Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
-            playerRigidBody.MoveRotation(playerRigidBody.rotation * turnRotation);
-        
+        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
+        playerRigidBody.MoveRotation(playerRigidBody.rotation * turnRotation);
 
         // Control the particle system based on velocity
         if (currVelocity > 0)
@@ -123,6 +143,26 @@ public class Starter2 : MonoBehaviour
             {
                 moveParticleSystem.Play();
             }
+
+            // Play moving sound effect if not already playing
+            if (movingSound != null && !isMovingSoundPlaying)
+            {
+                PlaySound(movingSound);
+                isMovingSoundPlaying = true;
+            }
+
+            // Trigger the delayed moving sound if speed is 1/10 of the total velocity and hasn't been played before
+            if (delayedMovingSound != null && currVelocity >= MAX_VELOCITY / 10 && !hasDelayedMovingSoundPlayed)
+            {
+                PlaySoundOnce(delayedMovingSound);
+                hasDelayedMovingSoundPlayed = true; // Ensure it plays only once
+            }
+
+            // Stop idle sound effect if playing
+            if (idleSound != null && audioSource.clip == idleSound)
+            {
+                audioSource.Stop();
+            }
         }
         else
         {
@@ -130,6 +170,21 @@ public class Starter2 : MonoBehaviour
             {
                 moveParticleSystem.Stop();
             }
+
+            // Play idle sound effect if not already playing
+            if (idleSound != null && audioSource.clip != idleSound)
+            {
+                PlaySound(idleSound);
+            }
+
+            // Stop moving sound effect if playing
+            if (movingSound != null && isMovingSoundPlaying)
+            {
+                isMovingSoundPlaying = false;
+            }
+
+            // Reset max speed sound playing flag
+            isMaxSpeedSoundPlaying = false;
         }
 
         // Optionally, log the current move speed and rotation for debugging purposes
@@ -203,5 +258,17 @@ public class Starter2 : MonoBehaviour
 
         // Destroy the effect instance after the specified duration
         Destroy(effectInstance, duration);
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    private void PlaySoundOnce(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
