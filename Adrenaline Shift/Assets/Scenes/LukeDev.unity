@@ -328,7 +328,6 @@ GameObject:
   - component: {fileID: 442732908}
   - component: {fileID: 442732907}
   - component: {fileID: 442732906}
-  - component: {fileID: 442732909}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -394,28 +393,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442732905}
-  m_LocalRotation: {x: 0.0019884678, y: 0.9954467, z: -0.0928863, w: -0.021310063}
-  m_LocalPosition: {x: -1.28, y: 3.4060001, z: 12.078502}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.9914449, z: -0.13052616, w: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 2.8}
+  m_LocalScale: {x: 0.4, y: 0.40000004, z: 0.4000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 10.652, y: 182.496, z: 0.462}
---- !u!114 &442732909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442732905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78fe2745d1bf0d149931d504ef42b6cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 453961746}
-  offset: {x: 0, y: 5, z: 6}
+  m_LocalEulerAnglesHint: {x: 15, y: 180, z: 0}
 --- !u!1001 &453961745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -429,15 +414,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -449,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 62.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -553,6 +538,10 @@ MonoBehaviour:
   effectScale2: {x: 1, y: 1, z: 1}
   IsFollowCar: 0
   moveParticleSystem: {fileID: 0}
+  idleSound: {fileID: 0}
+  movingSound: {fileID: 0}
+  delayedMovingSound: {fileID: 0}
+  maxSpeedSound: {fileID: 0}
 --- !u!1 &503013959
 GameObject:
   m_ObjectHideFlags: 0
