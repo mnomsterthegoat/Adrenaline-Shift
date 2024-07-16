@@ -26,6 +26,9 @@ public class Starter2 : MonoBehaviour
     public Vector3 effectScale2 = new Vector3(1, 1, 1); // Scale of the second effect
     public bool IsFollowCar = false; // Flag to determine if the second effect follows the car
 
+    // Reference to the particle system attached to the car
+    public ParticleSystem moveParticleSystem;
+
     private float currVelocity = 0f; // Current velocity
     private Rigidbody playerRigidBody;
     private Coroutine effectCoroutine;
@@ -102,6 +105,22 @@ public class Starter2 : MonoBehaviour
             playerRigidBody.MoveRotation(playerRigidBody.rotation * turnRotation);
         }
 
+        // Control the particle system based on velocity
+        if (currVelocity > 0)
+        {
+            if (!moveParticleSystem.isPlaying)
+            {
+                moveParticleSystem.Play();
+            }
+        }
+        else
+        {
+            if (moveParticleSystem.isPlaying)
+            {
+                moveParticleSystem.Stop();
+            }
+        }
+
         // Optionally, log the current move speed and rotation for debugging purposes
         Debug.Log("Move Speed: " + currVelocity + ", Rotation: " + playerRigidBody.rotation.eulerAngles);
     }
@@ -112,11 +131,8 @@ public class Starter2 : MonoBehaviour
         {
             if (currVelocity > 0) // Only spawn the first effect if the car is moving
             {
-                // Instantiate the first effect prefab at the specified position and scale
-                GameObject effectInstance = Instantiate(effectPrefab, transform.position + transform.TransformDirection(effectPositionOffset), transform.rotation);
-                effectInstance.transform.localScale = effectScale;
-                // Destroy the effect instance after the specified duration
-                Destroy(effectInstance, effectDuration);
+                // Instantiate and scale the first effect
+                InstantiateAndScaleEffect(effectPrefab, effectPositionOffset, effectScale, effectDuration);
             }
 
             // Check for the second effect
@@ -124,24 +140,57 @@ public class Starter2 : MonoBehaviour
             {
                 if (currVelocity > 0) // Only spawn the second effect if the car is moving and IsFollowCar is true
                 {
-                    // Instantiate the second effect prefab at the specified position and scale
-                    GameObject effectInstance2 = Instantiate(effectPrefab2, transform.position + transform.TransformDirection(effectPositionOffset2), transform.rotation);
-                    effectInstance2.transform.localScale = effectScale2;
-                    // Destroy the effect instance after the specified duration
-                    Destroy(effectInstance2, effectDuration2);
+                    InstantiateAndScaleEffect(effectPrefab2, effectPositionOffset2, effectScale2, effectDuration2);
                 }
             }
             else
             {
                 // Continuously spawn the second effect regardless of the car's movement
-                GameObject effectInstance2 = Instantiate(effectPrefab2, transform.position + transform.TransformDirection(effectPositionOffset2), transform.rotation);
-                effectInstance2.transform.localScale = effectScale2;
-                // Destroy the effect instance after the specified duration
-                Destroy(effectInstance2, effectDuration2);
+                InstantiateAndScaleEffect(effectPrefab2, effectPositionOffset2, effectScale2, effectDuration2);
             }
 
             // Wait for the specified interval before spawning the next effect
             yield return new WaitForSeconds(effectSpawnInterval);
         }
+    }
+
+    private void InstantiateAndScaleEffect(GameObject effectPrefab, Vector3 positionOffset, Vector3 scale, float duration)
+    {
+        if (effectPrefab == null)
+        {
+            Debug.LogError("Effect prefab is not assigned!");
+            return;
+        }
+
+        // Instantiate the effect prefab at the specified position and scale
+        Vector3 position = transform.position + transform.TransformDirection(positionOffset);
+        GameObject effectInstance = Instantiate(effectPrefab, position, transform.rotation);
+        effectInstance.transform.localScale = Vector3.Scale(scale, transform.localScale); // Adjust the effect's scale based on the car's scale
+
+        // Log the instantiation for debugging
+        Debug.Log("Instantiated Effect: " + effectPrefab.name + " at position: " + effectInstance.transform.position + " with scale: " + effectInstance.transform.localScale);
+
+        // Ensure the effect is on the correct layer and visible to the camera
+        effectInstance.layer = gameObject.layer;
+
+        // Activate the effect if it's inactive
+        if (!effectInstance.activeInHierarchy)
+        {
+            effectInstance.SetActive(true);
+        }
+
+        // Ensure the particle system starts emitting
+        ParticleSystem ps = effectInstance.GetComponent<ParticleSystem>();
+        if (ps != null)
+        {
+            ps.Play();
+        }
+        else
+        {
+            Debug.LogError("No ParticleSystem component found on the effect prefab!");
+        }
+
+        // Destroy the effect instance after the specified duration
+        Destroy(effectInstance, duration);
     }
 }
