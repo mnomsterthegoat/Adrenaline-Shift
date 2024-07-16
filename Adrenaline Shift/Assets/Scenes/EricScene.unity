@@ -441,7 +441,7 @@ MonoBehaviour:
   effectPrefab: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   effectDuration: 1
   effectSpawnInterval: 0.1
-  effectPositionOffset: {x: 0, y: 0, z: -1}
+  effectPositionOffset: {x: 0, y: 0, z: 1}
   effectScale: {x: 3, y: 3, z: 3}
   effectPrefab2: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   effectDuration2: 0.5
