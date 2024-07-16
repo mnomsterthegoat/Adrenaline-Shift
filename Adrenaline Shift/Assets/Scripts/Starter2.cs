@@ -92,15 +92,26 @@ public class Starter2 : MonoBehaviour
         }
 
         // Calculate movement direction
-        Vector3 moveDirection = transform.forward * verticalInput * currVelocity;
+        
 
         // Apply movement and maintain Y velocity (gravity)
-        playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            Vector3 moveDirection = transform.forward * -1 * currVelocity;
+            playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            Vector3 moveDirection = transform.forward * 1 * currVelocity;
+            playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
+        }
 
         // Apply rotation for turning
-   // Turn based on horizontal input
-        
-            float turn = horizontalInput * turnSpeed * Time.deltaTime;
+        // Turn based on horizontal input
+
+        float turn = horizontalInput * turnSpeed * Time.deltaTime;
             Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
             playerRigidBody.MoveRotation(playerRigidBody.rotation * turnRotation);
         
