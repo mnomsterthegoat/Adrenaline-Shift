@@ -95,12 +95,12 @@ public class Starter2 : MonoBehaviour
             {
                 currVelocity += (MAX_VELOCITY / TIME_TO_REACH) * Time.deltaTime;
 
-               // if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
-                //{
-                   // currVelocity += 5f * Time.deltaTime;
-                   // boosterFuel -= 10f * Time.deltaTime;
-                //}
-                if (currVelocity > MAX_VELOCITY)
+                if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
+                {
+                    currVelocity += 5f * Time.deltaTime;
+                    boosterFuel -= 10f * Time.deltaTime;
+                }
+                else if (currVelocity > MAX_VELOCITY)
                 {
                     currVelocity = MAX_VELOCITY;
 
@@ -110,6 +110,10 @@ public class Starter2 : MonoBehaviour
                         PlaySound(maxSpeedSound);
                         isMaxSpeedSoundPlaying = true;
                     }
+                }
+                if (currVelocity > 100)
+                {
+                    currVelocity = 100;
                 }
             }
         }
@@ -132,11 +136,10 @@ public class Starter2 : MonoBehaviour
             playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
         }
 
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.S))
         {
-            currVelocity -= decelerationRate * Time.deltaTime;
-            //Vector3 moveDirection = transform.forward * 1 * currVelocity;
-            //playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
+            Vector3 moveDirection = transform.forward * 1 * currVelocity;
+            playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
         }
 
         // Apply rotation for turning
@@ -203,7 +206,7 @@ public class Starter2 : MonoBehaviour
     {
         while (true) // Infinite loop to keep spawning effects
         {
-            if (currVelocity > 0) // Only spawn the first effect if the car is moving
+            if (currVelocity > 0) // Only spawn the first effect if the car is moving forward
             {
                 // Instantiate and scale the first effect
                 InstantiateAndScaleEffect(effectPrefab, effectPositionOffset, effectScale, effectDuration);
