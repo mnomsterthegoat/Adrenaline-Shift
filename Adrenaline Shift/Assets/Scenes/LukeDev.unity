@@ -394,12 +394,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442732905}
   m_LocalRotation: {x: -0, y: 0.9914449, z: -0.13052616, w: 0}
-  m_LocalPosition: {x: 0, y: 2, z: 2.8}
-  m_LocalScale: {x: 0.4, y: 0.40000004, z: 0.4000001}
+  m_LocalPosition: {x: 0, y: 20, z: 28}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 453961752}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 15, y: 180, z: 0}
 --- !u!1001 &453961745
 PrefabInstance:
@@ -542,6 +542,11 @@ MonoBehaviour:
   movingSound: {fileID: 0}
   delayedMovingSound: {fileID: 0}
   maxSpeedSound: {fileID: 0}
+--- !u!4 &453961752 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
+  m_PrefabInstance: {fileID: 453961745}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &503013959
 GameObject:
   m_ObjectHideFlags: 0
