@@ -10,7 +10,7 @@ public class Starter2 : MonoBehaviour
     public float decelerationRate = 0.5f; // Rate at which the car decelerates
     public float friction = 0.1f; // Friction factor to slow down the car gradually
     public float drag = 0.1f; // Drag factor to reduce velocity over time
-    private float boosterFuel = 100f;
+    public float boosterFuel = 100f;
 
     // Fields for the first effect
     public GameObject effectPrefab; // Reference to the first effect prefab
@@ -97,8 +97,7 @@ public class Starter2 : MonoBehaviour
 
                 if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
                 {
-                    currVelocity += 5f * Time.deltaTime;
-                    boosterFuel -= 10f * Time.deltaTime;
+                    currVelocity += 20f * Time.deltaTime;
                 }
                 else if (currVelocity > MAX_VELOCITY)
                 {
@@ -129,6 +128,16 @@ public class Starter2 : MonoBehaviour
             }
         }
 
+        if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
+        {
+            boosterFuel -= 15f * Time.deltaTime;
+        }
+
+        if(boosterFuel < 0)
+        {
+            boosterFuel = 0;
+        }
+
         // Calculate movement direction
         if (Input.GetKey(KeyCode.W))
         {
@@ -140,6 +149,11 @@ public class Starter2 : MonoBehaviour
         {
             Vector3 moveDirection = transform.forward * 1 * currVelocity;
             playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
+        }
+
+        if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.W))
+        {
+            currVelocity -= Time.deltaTime * 15f;
         }
 
         // Apply rotation for turning
