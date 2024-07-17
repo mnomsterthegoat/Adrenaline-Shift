@@ -63,6 +63,8 @@ public class Starter2 : MonoBehaviour
             audioSource.loop = true;
             audioSource.Play();
         }
+
+        
     }
 
     // Update is called once per frame
