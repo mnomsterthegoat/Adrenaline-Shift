@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Starter2 : MonoBehaviour
 {
@@ -48,6 +49,9 @@ public class Starter2 : MonoBehaviour
     private float slidingSpeed = 0f;
     private float slidingDecelerationRate = 1f; // Deceleration rate when sliding
 
+    public int laps = 0;
+    public TextMeshPro lapText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +71,8 @@ public class Starter2 : MonoBehaviour
             audioSource.loop = true;
             audioSource.Play();
         }
+
+        lapText.text = "LAPS: " + laps;
     }
 
     // Update is called once per frame
@@ -326,5 +332,11 @@ public class Starter2 : MonoBehaviour
     private void PlaySoundOnce(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        laps += 1;
+        lapText.text = "LAPS: " + laps;
     }
 }
