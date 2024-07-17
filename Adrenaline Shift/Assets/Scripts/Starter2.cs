@@ -138,6 +138,14 @@ public class Starter2 : MonoBehaviour
             boosterFuel = 0;
         }
 
+        if (transform.position.y > 3)
+        {
+            transform.position = new Vector3 (transform.position.x , 1 , transform.position.z);
+        }
+        if (transform.position.y < -3)
+        {
+            transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        }
         // Calculate movement direction
         if (Input.GetKey(KeyCode.W))
         {
