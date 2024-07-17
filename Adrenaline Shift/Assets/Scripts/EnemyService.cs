@@ -29,7 +29,7 @@ public class EnemyService : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         Vector3 verticalInput = new Vector3(0,0,0);
 
@@ -38,7 +38,7 @@ public class EnemyService : MonoBehaviour
         if ((checkpoints[checkpointCounter].transform.position - transform.position).magnitude < 8)
         {
             checkpointCounter += 1;
-            if (checkpointCounter > checkpoints.Length)
+            if (checkpointCounter > checkpoints.Length - 1)
             {
                 checkpointCounter = 0;
             }
@@ -78,14 +78,13 @@ public class EnemyService : MonoBehaviour
         playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
 
         // Apply rotation for turning
-        Vector3 lookPos = checkpoints[checkpointCounter].transform.position - transform.position;
+        Vector3 lookPos = transform.position - checkpoints[checkpointCounter].transform.position; // Negate the direction vector
         lookPos.y = 0;
-        //float turn =  -horizontalInput * turnSpeed * Time.deltaTime;
-        Quaternion turnRotation = Quaternion.LookRotation(-lookPos); //Quaternion.Euler(0f, turn, 0f);
-        transform.rotation = Quaternion.Slerp(transform.rotation, turnRotation, Time.deltaTime * 2);
-        //playerRigidBody.MoveRotation(playerRigidBody.rotation * turnRotation);
+        /*Quaternion turnRotation = Quaternion.LookRotation(lookPos);
+        transform.rotation = Quaternion.Lerp(transform.rotation, turnRotation, Mathf.Min(2 * Time.deltaTime, 1));*/
+       transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, lookPos, MAX_VELOCITY * Time.deltaTime, 0.0f));
 
         // Optionally, log the current move speed and rotation for debugging purposes
-        Debug.Log(checkpointCounter);
+        //Debug.Log(checkpointCounter);
     }
 }
