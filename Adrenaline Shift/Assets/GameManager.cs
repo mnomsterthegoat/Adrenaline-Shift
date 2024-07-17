@@ -14,11 +14,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CarSelectLoaded == false)
-        {
-            // Loads the second Scene
-            
-        }
         
     }
 
@@ -26,6 +21,10 @@ public class GameManager : MonoBehaviour
     {
         //SceneManager.SetActiveScene(SceneManager.GetSceneByName("CarSelect"));
         SceneManager.LoadScene("CarSelect");
-        CarSelectLoaded = true;
+    }
+
+    public void ControlsSelect()
+    {
+        SceneManager.LoadScene("Controls");
     }
 }
