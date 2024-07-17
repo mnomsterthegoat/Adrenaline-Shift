@@ -88,10 +88,12 @@ public class Starter2 : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             horizontalInput = -1f;
+            isSliding = true;
         }
         else if (Input.GetKey(KeyCode.D))
         {
             horizontalInput = 1f;
+            isSliding = true; 
         }
 
         // Calculate acceleration
