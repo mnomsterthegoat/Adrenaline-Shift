@@ -158,19 +158,19 @@ public class Starter2 : MonoBehaviour
             boosterFuel = 0;
         }
 
-        if (transform.position.y > 23)
-        {
-            transform.position = new Vector3(transform.position.x, 21.5f, transform.position.z);
-        }
-        if (transform.position.y < 4)
-        {
-            transform.position = new Vector3(transform.position.x, 5.08f, transform.position.z);
-        }
+        //if (transform.position.y > 6)
+        //{
+         //   transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        //}
+        //if (transform.position.y < -4)
+        //{
+        //    transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        //}
 
         // Calculate movement direction
         if (Input.GetKey(KeyCode.W))
         {
-            Vector3 moveDirection = transform.forward * -1 * currVelocity;
+            Vector3 moveDirection = transform.forward * -1 * currVelocity ;
             playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
         }
 
