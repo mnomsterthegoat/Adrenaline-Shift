@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -52028,7 +52028,13 @@ MonoBehaviour:
   decelerationRate: 0.5
   friction: 0.1
   drag: 0.1
-  moveParticleSystem: {fileID: 0}
+  effectPrefab: {fileID: 6675302182551818641, guid: 5bc9a0bf98f67d240a936bf476ba2082, type: 3}
+  effectDuration: 0.5
+  effectSpawnInterval: 0.1
+  effectPositionOffset: {x: 0, y: 0, z: 0}
+  effectScale: {x: 1, y: 1, z: 1}
+  IsFollowCar: 0
+  movingSound: {fileID: 8300000, guid: e1c2366a3a738e34bac7ebf0c85b3ab8, type: 3}
   checkpointCounter: 0
   checkpoints:
   - {fileID: 2002277133}
@@ -61406,7 +61412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4924d7d311f4e4ae4aa747dc0117de2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_VELOCITY: 35
+  MAX_VELOCITY: 5
   TIME_TO_REACH: 5
   turnSpeed: 50
   decelerationRate: 5
@@ -61416,7 +61422,7 @@ MonoBehaviour:
   effectPrefab: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   effectDuration: 1
   effectSpawnInterval: 0.1
-  effectPositionOffset: {x: 0, y: 0, z: 1}
+  effectPositionOffset: {x: 0, y: 0, z: 0.5}
   effectScale: {x: 3, y: 3, z: 3}
   effectPrefab2: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   effectDuration2: 0.1
@@ -61424,11 +61430,16 @@ MonoBehaviour:
   effectPositionOffset2: {x: 0, y: 0, z: -1}
   effectScale2: {x: 4, y: 4, z: 4}
   IsFollowCar: 1
+  maxSpeedEffectPrefab: {fileID: 100002, guid: db50ab1c866680e4bb870bf5eb72dd3d, type: 3}
+  maxSpeedEffectPositionOffset: {x: 0, y: 0, z: 1}
+  maxSpeedEffectScale: {x: 1, y: 1, z: 1}
   moveParticleSystem: {fileID: 6580464515710990385, guid: bed88ee90334d4f099c3c16529bd3b96, type: 3}
   idleSound: {fileID: 8300000, guid: 3c1c130f6e1be75418d305f8e478e0f0, type: 3}
   movingSound: {fileID: 8300000, guid: e1c2366a3a738e34bac7ebf0c85b3ab8, type: 3}
   delayedMovingSound: {fileID: 8300000, guid: f90d2412cefca404cba80202baddb8d1, type: 3}
-  maxSpeedSound: {fileID: 8300000, guid: 75fa27e467267c74f91f1f6f4e74ff88, type: 3}
+  maxSpeedSound: {fileID: 8300000, guid: 594c96bc024374641bdf1660a2622236, type: 3}
+  laps: 0
+  lapText: {fileID: 0}
 --- !u!65 &1226929366
 BoxCollider:
   m_ObjectHideFlags: 0
