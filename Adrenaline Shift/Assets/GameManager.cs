@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    bool CarSelectLoaded = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +25,10 @@ public class GameManager : MonoBehaviour
     public void ControlsSelect()
     {
         SceneManager.LoadScene("Controls");
+    }
+
+    public void Car1()
+    {
+        SceneManager.LoadScene("MapSelect");
     }
 }
