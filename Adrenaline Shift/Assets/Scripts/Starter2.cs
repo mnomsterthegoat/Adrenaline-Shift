@@ -28,6 +28,11 @@ public class Starter2 : MonoBehaviour
     public Vector3 effectScale2 = new Vector3(1, 1, 1); // Scale of the second effect
     public bool IsFollowCar = false; // Flag to determine if the second effect follows the car
 
+    // Fields for the max speed effect
+    public GameObject maxSpeedEffectPrefab; // Reference to the max speed effect prefab
+    public Vector3 maxSpeedEffectPositionOffset = new Vector3(0, 0, -2f); // Position offset of the max speed effect relative to the car
+    public Vector3 maxSpeedEffectScale = new Vector3(1, 1, 1); // Scale of the max speed effect
+
     // Reference to the particle system attached to the car
     public ParticleSystem moveParticleSystem;
 
@@ -99,7 +104,7 @@ public class Starter2 : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
         {
             horizontalInput = 1f;
-            isSliding = true; 
+            isSliding = true;
         }
 
         // Calculate acceleration
@@ -123,6 +128,9 @@ public class Starter2 : MonoBehaviour
                         PlaySound(maxSpeedSound);
                         isMaxSpeedSoundPlaying = true;
                     }
+
+                    // Play max speed effect
+                    InstantiateAndScaleEffect(maxSpeedEffectPrefab, maxSpeedEffectPositionOffset, maxSpeedEffectScale, effectDuration);
                 }
                 if (currVelocity > 100)
                 {
@@ -166,19 +174,10 @@ public class Starter2 : MonoBehaviour
             boosterFuel = 0;
         }
 
-        //if (transform.position.y > 6)
-        //{
-         //   transform.position = new Vector3(transform.position.x, 1, transform.position.z);
-        //}
-        //if (transform.position.y < -4)
-        //{
-        //    transform.position = new Vector3(transform.position.x, 1, transform.position.z);
-        //}
-
         // Calculate movement direction
         if (Input.GetKey(KeyCode.W))
         {
-            Vector3 moveDirection = transform.forward * -1 * currVelocity ;
+            Vector3 moveDirection = transform.forward * -1 * currVelocity;
             playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
         }
 
@@ -261,20 +260,20 @@ public class Starter2 : MonoBehaviour
             {
                 // Instantiate and scale the first effect
                 InstantiateAndScaleEffect(effectPrefab, effectPositionOffset, effectScale, effectDuration);
-            }
 
-            // Check for the second effect
-            if (IsFollowCar)
-            {
-                if (currVelocity > 0) // Only spawn the second effect if the car is moving and IsFollowCar is true
+                // Check for the second effect
+                if (IsFollowCar)
                 {
                     InstantiateAndScaleEffect(effectPrefab2, effectPositionOffset2, effectScale2, effectDuration2);
                 }
             }
             else
             {
-                // Continuously spawn the second effect regardless of the car's movement
-                InstantiateAndScaleEffect(effectPrefab2, effectPositionOffset2, effectScale2, effectDuration2);
+                if (IsFollowCar)
+                {
+                    // Continuously spawn the second effect regardless of the car's movement
+                    InstantiateAndScaleEffect(effectPrefab2, effectPositionOffset2, effectScale2, effectDuration2);
+                }
             }
 
             // Wait for the specified interval before spawning the next effect
