@@ -44,6 +44,10 @@ public class Starter2 : MonoBehaviour
     private bool isMovingSoundPlaying = false;
     private bool hasDelayedMovingSoundPlayed = false; // Ensure delayed moving sound plays only once
 
+    private bool isSliding = false;
+    private float slidingSpeed = 0f;
+    private float slidingDecelerationRate = 1f; // Deceleration rate when sliding
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,8 +67,6 @@ public class Starter2 : MonoBehaviour
             audioSource.loop = true;
             audioSource.Play();
         }
-
-        
     }
 
     // Update is called once per frame
@@ -74,10 +76,12 @@ public class Starter2 : MonoBehaviour
         if (Input.GetKey(KeyCode.S))
         {
             verticalInput = 1f;
+            isSliding = false; // Reset sliding when moving backward
         }
         else if (Input.GetKey(KeyCode.W))
         {
             verticalInput = -1f;
+            isSliding = false; // Reset sliding when moving forward
         }
 
         float horizontalInput = 0f;
@@ -117,15 +121,29 @@ public class Starter2 : MonoBehaviour
                     currVelocity = 100;
                 }
             }
+            slidingSpeed = currVelocity; // Update sliding speed
         }
-        else // Decelerate when there is no vertical input
+        else if (isSliding) // Decelerate when sliding
+        {
+            if (slidingSpeed > 0)
+            {
+                slidingSpeed -= slidingDecelerationRate * Time.deltaTime;
+                if (slidingSpeed < 0)
+                {
+                    slidingSpeed = 0;
+                    isSliding = false;
+                }
+                currVelocity = slidingSpeed; // Update current velocity
+            }
+        }
+        else // Decelerate when there is no vertical input and not sliding
         {
             if (currVelocity > 0)
             {
                 currVelocity -= decelerationRate * Time.deltaTime * MAX_VELOCITY;
-                if (currVelocity < 0)
+                if (currVelocity <= 0)
                 {
-                    currVelocity = 0;
+                    currVelocity = playerRigidBody.velocity.z;
                 }
             }
         }
@@ -135,14 +153,14 @@ public class Starter2 : MonoBehaviour
             boosterFuel -= 15f * Time.deltaTime;
         }
 
-        if(boosterFuel < 0)
+        if (boosterFuel < 0)
         {
             boosterFuel = 0;
         }
 
         if (transform.position.y > 23)
         {
-            transform.position = new Vector3 (transform.position.x , 21.5f , transform.position.z);
+            transform.position = new Vector3(transform.position.x, 21.5f, transform.position.z);
         }
         if (transform.position.y < 4)
         {
