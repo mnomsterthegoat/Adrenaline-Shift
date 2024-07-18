@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RealCameraFollow : MonoBehaviour
+{
+    public GameObject plr;
+    private Vector3 offset = new Vector3(1.5f, 3, 4);
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.position = plr.transform.position + offset;
+        Quaternion plrRotation = plr.transform.rotation;
+        plrRotation.x = 15;
+        plrRotation.z = 180;
+        transform.rotation = plrRotation;
+    }
+}
