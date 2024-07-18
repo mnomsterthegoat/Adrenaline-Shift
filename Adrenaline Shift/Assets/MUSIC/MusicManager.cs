@@ -11,8 +11,17 @@ public class MusicManager : MonoBehaviour
     public AudioClip map3Music;
     private AudioSource audioSource;
 
+    private static MusicManager instance;
+
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+
         DontDestroyOnLoad(gameObject); // Keep the MusicManager when loading new scenes
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.loop = true;
@@ -44,10 +53,18 @@ public class MusicManager : MonoBehaviour
                 break;
         }
 
-        if (clipToPlay != null && audioSource.clip != clipToPlay)
+        if (clipToPlay != null)
         {
-            audioSource.clip = clipToPlay;
-            audioSource.Play();
+            if (audioSource.clip == clipToPlay && audioSource.isPlaying)
+            {
+                // Do nothing, the correct music is already playing
+                return;
+            }
+            else
+            {
+                audioSource.clip = clipToPlay;
+                audioSource.Play();
+            }
         }
     }
 
