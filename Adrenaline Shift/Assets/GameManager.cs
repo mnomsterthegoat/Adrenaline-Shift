@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject redCar;
+    public GameObject whiteCar;
+    public GameObject greenCar;
+    public GameObject GameUI;
+    public GameObject carCanvas;
     // Start is called before the first frame update
     void Start()
     {
-
     }
     // Update is called once per frame
     void Update()
@@ -16,10 +20,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void CarSelect()
+    public void MapSelect()
     {
-        //SceneManager.SetActiveScene(SceneManager.GetSceneByName("CarSelect"));
-        SceneManager.LoadScene("CarSelect");
+        SceneManager.LoadScene("MapSelect");
     }
 
     public void ControlsSelect()
@@ -29,7 +32,27 @@ public class GameManager : MonoBehaviour
 
     public void Car1()
     {
-        SceneManager.LoadScene("MapSelect");
+        redCar.SetActive(true);
+        whiteCar.SetActive(false);
+        greenCar.SetActive(false);
+        GameUI.SetActive(true);
+        carCanvas.SetActive(false);
+    }
+    public void Car2()
+    {
+        redCar.SetActive(false);
+        whiteCar.SetActive(true);
+        greenCar.SetActive(false);
+        GameUI.SetActive(true);
+        carCanvas.SetActive(false);
+    }
+    public void Car3()
+    {
+        redCar.SetActive(false);
+        greenCar.SetActive(false);
+        whiteCar.SetActive(false);
+        GameUI.SetActive(true);
+        carCanvas.SetActive(false);
     }
 
     public void Map1()
