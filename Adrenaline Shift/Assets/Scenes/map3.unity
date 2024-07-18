@@ -947,7 +947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_VELOCITY: 30
   TIME_TO_REACH: 10
-  turnSpeed: 70
+  turnSpeed: 80
   decelerationRate: 2
   friction: 1.5
   drag: 1.5
@@ -1668,6 +1668,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: de9a10e5830d9704d8e02d5c27d676bd, type: 3}
       propertyPath: m_TagString
@@ -49711,7 +49715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68f8d0472d451400b8bb4534f4bba2b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 357.25
+      value: 355.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68f8d0472d451400b8bb4534f4bba2b5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -49719,7 +49723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68f8d0472d451400b8bb4534f4bba2b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 340.29
+      value: 341.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68f8d0472d451400b8bb4534f4bba2b5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -49754,6 +49758,10 @@ PrefabInstance:
       value: raceCarWhite
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 68f8d0472d451400b8bb4534f4bba2b5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68f8d0472d451400b8bb4534f4bba2b5, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -49783,7 +49791,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MAX_VELOCITY: 30
   TIME_TO_REACH: 6
-  turnSpeed: 60
+  turnSpeed: 70
   decelerationRate: 2
   friction: 1.5
   drag: 1.5
@@ -50788,7 +50796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b935a423a51f447e48e9f473c7f20424, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 357
+      value: 355.24
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b935a423a51f447e48e9f473c7f20424, type: 3}
       propertyPath: m_LocalPosition.y
@@ -50796,7 +50804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b935a423a51f447e48e9f473c7f20424, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 340
+      value: 341.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b935a423a51f447e48e9f473c7f20424, type: 3}
       propertyPath: m_LocalRotation.w
@@ -50829,6 +50837,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b935a423a51f447e48e9f473c7f20424, type: 3}
       propertyPath: m_Name
       value: raceCarGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b935a423a51f447e48e9f473c7f20424, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b935a423a51f447e48e9f473c7f20424, type: 3}
       propertyPath: m_TagString

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CamFollow : MonoBehaviour
 {
     private GameObject player;
-    public Vector3 offset = new Vector3(0, 5, 6);
+    public Vector3 offset = new Vector3(0, 20, 0);
 
 
     void Start()
@@ -14,10 +14,8 @@ public class CamFollow : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (player = null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
+         player = GameObject.FindGameObjectWithTag("Player");
+        
         
         transform.position = player.transform.position + offset;
 
