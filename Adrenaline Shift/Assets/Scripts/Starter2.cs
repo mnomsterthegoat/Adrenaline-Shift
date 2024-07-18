@@ -199,6 +199,11 @@ public class Starter2 : MonoBehaviour
             currVelocity -= Time.deltaTime * 15f;
         }
 
+        if (verticalInput != -1f)
+        {
+            currVelocity -= 50f * Time.deltaTime;
+        }
+
         // Apply rotation for turning
         float turn = horizontalInput * turnSpeed * Time.deltaTime;
         Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
