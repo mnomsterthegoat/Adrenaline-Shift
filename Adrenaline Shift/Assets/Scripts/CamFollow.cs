@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CamFollow : MonoBehaviour
 {
-    private GameObject player1;
-    private GameObject player2;
-    private GameObject player3;
+    public GameObject player1;
+    public GameObject player2;
+    public GameObject player3;
     public Vector3 offset = new Vector3(0, 20, 0);
 
 
