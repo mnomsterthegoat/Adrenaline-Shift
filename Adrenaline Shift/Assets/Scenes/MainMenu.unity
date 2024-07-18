@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028373, g: 0.22571398, b: 0.30692294, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 420999958}
   - component: {fileID: 420999957}
   - component: {fileID: 420999956}
+  - component: {fileID: 420999959}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -581,6 +582,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420999954}
   m_CullTransparentMesh: 1
+--- !u!114 &420999959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420999954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4e1d7cd7ffb42489acaedb41bf0d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonText: {fileID: 763080327}
+  hoverScale: 1.2
 --- !u!1 &605365253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,6 +1151,7 @@ GameObject:
   - component: {fileID: 1189329478}
   - component: {fileID: 1189329477}
   - component: {fileID: 1189329476}
+  - component: {fileID: 1189329479}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1258,6 +1274,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189329474}
   m_CullTransparentMesh: 1
+--- !u!114 &1189329479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189329474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4e1d7cd7ffb42489acaedb41bf0d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonText: {fileID: 705400888}
+  hoverScale: 1.2
 --- !u!1 &2006785109
 GameObject:
   m_ObjectHideFlags: 0
