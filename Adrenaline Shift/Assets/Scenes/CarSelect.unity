@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.1341472, b: 0.121078566, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 133716171}
   - component: {fileID: 133716170}
   - component: {fileID: 133716169}
+  - component: {fileID: 133716172}
   m_Layer: 5
   m_Name: Car2
   m_TagString: Untagged
@@ -245,6 +246,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133716167}
   m_CullTransparentMesh: 1
+--- !u!114 &133716172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133716167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4e1d7cd7ffb42489acaedb41bf0d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonText: {fileID: 768575176}
+  hoverScale: 1.2
 --- !u!1 &368014016
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +792,7 @@ GameObject:
   - component: {fileID: 1227400598}
   - component: {fileID: 1227400597}
   - component: {fileID: 1227400596}
+  - component: {fileID: 1227400599}
   m_Layer: 5
   m_Name: Car1
   m_TagString: Untagged
@@ -899,6 +915,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227400594}
   m_CullTransparentMesh: 1
+--- !u!114 &1227400599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227400594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4e1d7cd7ffb42489acaedb41bf0d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonText: {fileID: 435972827}
+  hoverScale: 1.2
 --- !u!1 &2099011785
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,6 +1009,7 @@ GameObject:
   - component: {fileID: 2108508227}
   - component: {fileID: 2108508226}
   - component: {fileID: 2108508225}
+  - component: {fileID: 2108508228}
   m_Layer: 5
   m_Name: Car3
   m_TagString: Untagged
@@ -1089,6 +1120,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2108508223}
   m_CullTransparentMesh: 1
+--- !u!114 &2108508228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108508223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4e1d7cd7ffb42489acaedb41bf0d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonText: {fileID: 711998054}
+  hoverScale: 1.2
 --- !u!1 &2110105660
 GameObject:
   m_ObjectHideFlags: 0
