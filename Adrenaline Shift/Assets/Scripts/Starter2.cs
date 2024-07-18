@@ -166,6 +166,11 @@ public class Starter2 : MonoBehaviour
             }
         }
 
+        if (currVelocity < 0)
+        {
+            currVelocity = 0;
+        }
+
         if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
         {
             boosterFuel -= 15f * Time.deltaTime;
