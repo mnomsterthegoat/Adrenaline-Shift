@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class ButtonScaler: MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public TMP_Text buttonText;
     public float hoverScale = 1.2f;
