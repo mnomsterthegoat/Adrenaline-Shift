@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Starter2 : MonoBehaviour
 {
@@ -55,7 +57,7 @@ public class Starter2 : MonoBehaviour
     private float slidingDecelerationRate = 1f; // Deceleration rate when sliding
 
     public int laps = 0;
-    public TextMeshPro lapText;
+    public TextMeshProUGUI lapText;
 
     // Start is called before the first frame update
     void Start()
@@ -99,12 +101,12 @@ public class Starter2 : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             horizontalInput = -1f;
-            isSliding = true;
+            //isSliding = true;
         }
         else if (Input.GetKey(KeyCode.D))
         {
             horizontalInput = 1f;
-            isSliding = true;
+            //isSliding = true;
         }
 
         // Calculate acceleration
@@ -250,6 +252,8 @@ public class Starter2 : MonoBehaviour
 
         // Optionally, log the current move speed and rotation for debugging purposes
         Debug.Log("Move Speed: " + currVelocity + ", Rotation: " + playerRigidBody.rotation.eulerAngles);
+
+
     }
 
     IEnumerator PlayEffectsContinuously()
@@ -337,5 +341,9 @@ public class Starter2 : MonoBehaviour
     {
         laps += 1;
         lapText.text = "LAPS: " + laps;
+        if (laps > 3)
+        {
+            SceneManager.LoadScene("WinScreen");  
+        }
     }
 }

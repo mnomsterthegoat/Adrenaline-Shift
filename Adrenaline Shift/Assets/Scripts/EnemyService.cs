@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyService : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class EnemyService : MonoBehaviour
     public int checkpointCounter = 0;
     public GameObject[] checkpoints;
 
+
+    public float enemyLaps = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -176,5 +179,17 @@ public class EnemyService : MonoBehaviour
         audioSource.clip = clip;
         audioSource.loop = true;
         audioSource.Play();
+    }
+
+    void OnTriggerEnter (Collider other)
+    {
+        if (other.gameObject.tag == "FinishLine")
+        {
+            enemyLaps += 1f;
+        }
+        if (enemyLaps > 3f)
+        {
+            SceneManager.LoadScene("LoseScreen");
+        }
     }
 }
