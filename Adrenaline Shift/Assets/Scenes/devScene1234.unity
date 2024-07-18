@@ -37884,10 +37884,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe2a6439671d7a46b46afe93732ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_VELOCITY: 30
-  TIME_TO_REACH: 5
+  MAX_VELOCITY: 25
+  TIME_TO_REACH: 7
   turnSpeed: 10
-  decelerationRate: 0.5
+  decelerationRate: 2
   friction: 0.25
   drag: 0.25
   effectPrefab: {fileID: 0}
@@ -94963,11 +94963,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MAX_VELOCITY: 35
-  TIME_TO_REACH: 5
+  TIME_TO_REACH: 10
   turnSpeed: 70
-  decelerationRate: 0.5
-  friction: 0.1
-  drag: 0.1
+  decelerationRate: 2
+  friction: 1.5
+  drag: 1.5
   boosterFuel: 100
   effectPrefab: {fileID: 0}
   effectDuration: 0.5
