@@ -37026,7 +37026,7 @@ MonoBehaviour:
   effectPositionOffset: {x: 0, y: 0, z: 0}
   effectScale: {x: 1, y: 1, z: 1}
   IsFollowCar: 0
-  movingSound: {fileID: 0}
+  movingSound: {fileID: 8300000, guid: e1c2366a3a738e34bac7ebf0c85b3ab8, type: 3}
   checkpointCounter: 0
   checkpoints:
   - {fileID: 1504266219}
