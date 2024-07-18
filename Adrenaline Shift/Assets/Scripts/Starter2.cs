@@ -190,7 +190,7 @@ public class Starter2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S))
         {
-            Vector3 moveDirection = transform.forward * 1 * currVelocity;
+            Vector3 moveDirection = transform.forward * .3f * currVelocity;
             playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
         }
 
