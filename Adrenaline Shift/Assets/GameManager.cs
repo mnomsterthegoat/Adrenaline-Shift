@@ -10,9 +10,14 @@ public class GameManager : MonoBehaviour
     public GameObject greenCar;
     public GameObject GameUI;
     public GameObject carCanvas;
+    public GameObject Enemy;
     // Start is called before the first frame update
     void Start()
     {
+        Enemy.SetActive(false);
+        redCar.SetActive(false); 
+        whiteCar.SetActive(false) ; 
+        greenCar.SetActive(false) ;
     }
     // Update is called once per frame
     void Update()
@@ -37,6 +42,7 @@ public class GameManager : MonoBehaviour
         greenCar.SetActive(false);
         GameUI.SetActive(true);
         carCanvas.SetActive(false);
+        Enemy.SetActive(true);
     }
     public void Car2()
     {
@@ -45,14 +51,16 @@ public class GameManager : MonoBehaviour
         greenCar.SetActive(false);
         GameUI.SetActive(true);
         carCanvas.SetActive(false);
+        Enemy.SetActive(true);
     }
     public void Car3()
     {
         redCar.SetActive(false);
-        greenCar.SetActive(false);
+        greenCar.SetActive(true);
         whiteCar.SetActive(false);
         GameUI.SetActive(true);
         carCanvas.SetActive(false);
+        Enemy.SetActive(true);
     }
 
     public void Map1()
