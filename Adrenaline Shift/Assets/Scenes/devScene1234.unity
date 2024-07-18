@@ -33882,6 +33882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78fe2745d1bf0d149931d504ef42b6cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  player3: {fileID: 0}
   offset: {x: 0, y: 6, z: 7}
 --- !u!81 &432570980
 AudioListener:
@@ -37017,10 +37020,10 @@ MonoBehaviour:
   decelerationRate: 2
   friction: 0.25
   drag: 0.25
-  effectPrefab: {fileID: 0}
+  effectPrefab: {fileID: 6675302182551818641, guid: 5bc9a0bf98f67d240a936bf476ba2082, type: 3}
   effectDuration: 0.5
   effectSpawnInterval: 0.1
-  effectPositionOffset: {x: 0, y: 0, z: -2}
+  effectPositionOffset: {x: 0, y: 0, z: 0}
   effectScale: {x: 1, y: 1, z: 1}
   IsFollowCar: 0
   movingSound: {fileID: 0}
@@ -50465,6 +50468,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78fe2745d1bf0d149931d504ef42b6cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  player3: {fileID: 0}
   offset: {x: 0, y: 20, z: 0}
 --- !u!81 &895153772
 AudioListener:
