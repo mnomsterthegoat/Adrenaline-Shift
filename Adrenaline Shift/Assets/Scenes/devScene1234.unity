@@ -37890,7 +37890,13 @@ MonoBehaviour:
   decelerationRate: 0.5
   friction: 0.25
   drag: 0.25
-  moveParticleSystem: {fileID: 0}
+  effectPrefab: {fileID: 0}
+  effectDuration: 0.5
+  effectSpawnInterval: 0.1
+  effectPositionOffset: {x: 0, y: 0, z: -2}
+  effectScale: {x: 1, y: 1, z: 1}
+  IsFollowCar: 0
+  movingSound: {fileID: 0}
   checkpointCounter: 0
   checkpoints:
   - {fileID: 1504266219}
@@ -37984,6 +37990,7 @@ MonoBehaviour:
   - {fileID: 1450129361}
   - {fileID: 197308020}
   - {fileID: 1011723637}
+  enemyLaps: 0
 --- !u!1 &543547818
 GameObject:
   m_ObjectHideFlags: 0
@@ -94290,6 +94297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pylon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d390814d27fb4036909980ffb686931, type: 3}
+      propertyPath: m_TagString
+      value: FinishLine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d390814d27fb4036909980ffb686931, type: 3}
 --- !u!1 &2039142198 stripped
@@ -94969,11 +94980,16 @@ MonoBehaviour:
   effectPositionOffset2: {x: 0, y: 0, z: 0}
   effectScale2: {x: 1, y: 1, z: 1}
   IsFollowCar: 0
+  maxSpeedEffectPrefab: {fileID: 0}
+  maxSpeedEffectPositionOffset: {x: 0, y: 0, z: -2}
+  maxSpeedEffectScale: {x: 1, y: 1, z: 1}
   moveParticleSystem: {fileID: 0}
   idleSound: {fileID: 0}
   movingSound: {fileID: 0}
   delayedMovingSound: {fileID: 0}
   maxSpeedSound: {fileID: 0}
+  laps: 0
+  lapText: {fileID: 0}
 --- !u!65 &2056947020
 BoxCollider:
   m_ObjectHideFlags: 0

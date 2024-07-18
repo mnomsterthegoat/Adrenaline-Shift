@@ -44,4 +44,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Map3");
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
