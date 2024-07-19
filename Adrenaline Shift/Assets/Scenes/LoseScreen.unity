@@ -626,7 +626,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 964586751}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: CarSelect
+        m_MethodName: MapSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -771,6 +771,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0929eaa0b13a7d4c8696d5bddb6affc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  redCar: {fileID: 0}
+  whiteCar: {fileID: 0}
+  greenCar: {fileID: 0}
+  GameUI: {fileID: 0}
+  carCanvas: {fileID: 0}
+  Enemy: {fileID: 0}
 --- !u!4 &964586752
 Transform:
   m_ObjectHideFlags: 0
@@ -978,7 +984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Car Select
+  m_text: Map Select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d965ce92a09dc4bd0b82cf7766f5bd45, type: 2}
   m_sharedMaterial: {fileID: -5188409992663586934, guid: d965ce92a09dc4bd0b82cf7766f5bd45, type: 2}
