@@ -80,4 +80,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void quitGame()
+    {
+        Application.Quit();
+        Debug.Log("Game is exiting");
+    }
 }
