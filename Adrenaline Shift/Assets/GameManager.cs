@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void Map1()
     {
-        SceneManager.LoadScene("devScene1234");
+        SceneManager.LoadScene("Map1");
     }
     public void Map2()
     {
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     }
     public void Map3()
     {
-        SceneManager.LoadScene("Map3");
+        SceneManager.LoadScene("map3");
     }
 
     public void MainMenu()
