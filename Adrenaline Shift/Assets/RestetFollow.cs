@@ -29,11 +29,19 @@ public class RestetFollow : MonoBehaviour
         }
         if (player2.activeInHierarchy)
         {
+            targetRotationX = 0f;
+            targetRotationY = 180f;
+            targetRotationZ = 0f;
             transform.position = player2.transform.position + offset;
+            transform.rotation = Quaternion.Euler(targetRotationX, targetRotationY, targetRotationZ);
         }
         if (player3.activeInHierarchy)
         {
+            targetRotationX = 0f;
+            targetRotationY = player3.transform.rotation.y;
+            targetRotationZ = 0f;
             transform.position = player3.transform.position + offset;
+            transform.rotation = Quaternion.Euler(targetRotationX, targetRotationY, targetRotationZ);
         }
     }
 }

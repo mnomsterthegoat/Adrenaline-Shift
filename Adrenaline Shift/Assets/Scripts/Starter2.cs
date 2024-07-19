@@ -58,7 +58,7 @@ public class Starter2 : MonoBehaviour
 
     public int laps = 0;
     public TextMeshProUGUI lapText;
-
+    public TextMeshProUGUI boosterLeft;
     public GameObject reset;
 
     // Start is called before the first frame update
@@ -87,6 +87,7 @@ public class Starter2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        boosterLeft.text = "Adrenaline: " + boosterFuel;
         float verticalInput = 0f;
         if (Input.GetKey(KeyCode.S))
         {
@@ -192,7 +193,7 @@ public class Starter2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S))
         {
-            Vector3 moveDirection = transform.forward * .3f * currVelocity;
+            Vector3 moveDirection = transform.forward * .5f * currVelocity;
             playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
         }
 
