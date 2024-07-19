@@ -1093,7 +1093,7 @@ MonoBehaviour:
   effectPrefab2: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   effectDuration2: 0.5
   effectSpawnInterval2: 0.1
-  effectPositionOffset2: {x: 0, y: 0, z: 0}
+  effectPositionOffset2: {x: 0, y: 0, z: 1}
   effectScale2: {x: 1, y: 1, z: 1}
   IsFollowCar: 0
   maxSpeedEffectPrefab: {fileID: 3219383152176754834, guid: 8a78445e6de8a4b4cbec08147c1e1d0e, type: 3}
@@ -38269,7 +38269,7 @@ MonoBehaviour:
   effectPrefab2: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   effectDuration2: 0.5
   effectSpawnInterval2: 0.1
-  effectPositionOffset2: {x: 0, y: 0, z: 0}
+  effectPositionOffset2: {x: 0, y: 0, z: 1}
   effectScale2: {x: 1, y: 1, z: 1}
   IsFollowCar: 0
   maxSpeedEffectPrefab: {fileID: 3219383152176754834, guid: 8a78445e6de8a4b4cbec08147c1e1d0e, type: 3}
@@ -96175,7 +96175,7 @@ MonoBehaviour:
   effectPrefab2: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   effectDuration2: 0.5
   effectSpawnInterval2: 0.1
-  effectPositionOffset2: {x: 0, y: 0, z: 0}
+  effectPositionOffset2: {x: 0, y: 0, z: 1}
   effectScale2: {x: 1, y: 1, z: 1}
   IsFollowCar: 0
   maxSpeedEffectPrefab: {fileID: 3219383152176754834, guid: 8a78445e6de8a4b4cbec08147c1e1d0e, type: 3}
