@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1088,16 +1088,16 @@ MonoBehaviour:
   effectPrefab: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   effectDuration: 0.5
   effectSpawnInterval: 0.1
-  effectPositionOffset: {x: 0, y: 0, z: -2}
+  effectPositionOffset: {x: 0, y: 0, z: 0.5}
   effectScale: {x: 1, y: 1, z: 1}
   effectPrefab2: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   effectDuration2: 0.5
   effectSpawnInterval2: 0.1
-  effectPositionOffset2: {x: 0, y: 0, z: 0}
+  effectPositionOffset2: {x: 0, y: 0, z: 1}
   effectScale2: {x: 1, y: 1, z: 1}
   IsFollowCar: 0
   maxSpeedEffectPrefab: {fileID: 3219383152176754834, guid: 8a78445e6de8a4b4cbec08147c1e1d0e, type: 3}
-  maxSpeedEffectPositionOffset: {x: 0, y: 0, z: -2}
+  maxSpeedEffectPositionOffset: {x: 0, y: 0, z: 0}
   maxSpeedEffectScale: {x: 1, y: 1, z: 1}
   moveParticleSystem: {fileID: 6580464515710990385, guid: bed88ee90334d4f099c3c16529bd3b96, type: 3}
   idleSound: {fileID: 8300000, guid: 3c1c130f6e1be75418d305f8e478e0f0, type: 3}
@@ -38264,16 +38264,16 @@ MonoBehaviour:
   effectPrefab: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   effectDuration: 0.5
   effectSpawnInterval: 0.1
-  effectPositionOffset: {x: 0, y: 0, z: -2}
+  effectPositionOffset: {x: 0, y: 0, z: 0.5}
   effectScale: {x: 1, y: 1, z: 1}
   effectPrefab2: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   effectDuration2: 0.5
   effectSpawnInterval2: 0.1
-  effectPositionOffset2: {x: 0, y: 0, z: 0}
+  effectPositionOffset2: {x: 0, y: 0, z: 1}
   effectScale2: {x: 1, y: 1, z: 1}
   IsFollowCar: 0
   maxSpeedEffectPrefab: {fileID: 3219383152176754834, guid: 8a78445e6de8a4b4cbec08147c1e1d0e, type: 3}
-  maxSpeedEffectPositionOffset: {x: 0, y: 0, z: -2}
+  maxSpeedEffectPositionOffset: {x: 0, y: 0, z: 0}
   maxSpeedEffectScale: {x: 1, y: 1, z: 1}
   moveParticleSystem: {fileID: 6580464515710990385, guid: bed88ee90334d4f099c3c16529bd3b96, type: 3}
   idleSound: {fileID: 8300000, guid: 3c1c130f6e1be75418d305f8e478e0f0, type: 3}
@@ -96170,16 +96170,16 @@ MonoBehaviour:
   effectPrefab: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   effectDuration: 0.5
   effectSpawnInterval: 0.1
-  effectPositionOffset: {x: 0, y: 0, z: -2}
+  effectPositionOffset: {x: 0, y: 0, z: 0.5}
   effectScale: {x: 1, y: 1, z: 1}
   effectPrefab2: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   effectDuration2: 0.5
   effectSpawnInterval2: 0.1
-  effectPositionOffset2: {x: 0, y: 0, z: 0}
+  effectPositionOffset2: {x: 0, y: 0, z: 1}
   effectScale2: {x: 1, y: 1, z: 1}
   IsFollowCar: 0
   maxSpeedEffectPrefab: {fileID: 3219383152176754834, guid: 8a78445e6de8a4b4cbec08147c1e1d0e, type: 3}
-  maxSpeedEffectPositionOffset: {x: 0, y: 0, z: -2}
+  maxSpeedEffectPositionOffset: {x: 0, y: 0, z: 0}
   maxSpeedEffectScale: {x: 1, y: 1, z: 1}
   moveParticleSystem: {fileID: 6580464515710990385, guid: bed88ee90334d4f099c3c16529bd3b96, type: 3}
   idleSound: {fileID: 8300000, guid: 3c1c130f6e1be75418d305f8e478e0f0, type: 3}
