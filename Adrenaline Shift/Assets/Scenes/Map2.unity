@@ -55267,7 +55267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe2a6439671d7a46b46afe93732ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_VELOCITY: 25
+  MAX_VELOCITY: 26
   TIME_TO_REACH: 6
   turnSpeed: 50
   decelerationRate: 0.5

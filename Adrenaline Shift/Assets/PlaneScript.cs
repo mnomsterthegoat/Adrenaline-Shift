@@ -19,6 +19,10 @@ public class PlaneScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("LoseScreen");
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("LoseScreen");
+        }
     }
 }
