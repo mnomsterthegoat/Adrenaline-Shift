@@ -59,6 +59,8 @@ public class Starter2 : MonoBehaviour
     public int laps = 0;
     public TextMeshProUGUI lapText;
 
+    public GameObject reset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -202,6 +204,12 @@ public class Starter2 : MonoBehaviour
         if (verticalInput != -1f)
         {
             currVelocity -= 50f * Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            transform.position = reset.transform.position;
+            transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
         }
 
         // Apply rotation for turning
