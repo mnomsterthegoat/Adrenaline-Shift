@@ -1085,7 +1085,6 @@ MonoBehaviour:
   decelerationRate: 2
   friction: 1.5
   drag: 1.5
-  boosterFuel: 100
   effectPrefab: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   effectDuration: 0.5
   effectSpawnInterval: 0.1
@@ -1136,7 +1135,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!1001 &26360385
 PrefabInstance:
@@ -38262,7 +38261,6 @@ MonoBehaviour:
   decelerationRate: 2
   friction: 1.5
   drag: 1.5
-  boosterFuel: 100
   effectPrefab: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   effectDuration: 0.5
   effectSpawnInterval: 0.1
@@ -38313,7 +38311,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!4 &578267034 stripped
 Transform:
@@ -50630,7 +50628,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 13
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -96169,7 +96167,6 @@ MonoBehaviour:
   decelerationRate: 10
   friction: 1.5
   drag: 1.5
-  boosterFuel: 100
   effectPrefab: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   effectDuration: 0.5
   effectSpawnInterval: 0.1
@@ -96220,7 +96217,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!4 &2056947022 stripped
 Transform:
