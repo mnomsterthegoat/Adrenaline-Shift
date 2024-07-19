@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class RealCameraFollow : MonoBehaviour
 {
-    public GameObject plr;
+    public GameObject parent;
     private Vector3 offset = new Vector3(1.5f, 3, 4);
+
+    public float z = 0;
+    public float x = 15;
 
     // Start is called before the first frame update
     void Start()
@@ -16,10 +19,6 @@ public class RealCameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = plr.transform.position + offset;
-        Quaternion plrRotation = plr.transform.rotation;
-        plrRotation.x = 15;
-        plrRotation.z = 180;
-        transform.rotation = plrRotation;
+        transform.localEulerAngles = new Vector3(x, parent.transform.localEulerAngles.y, z);
     }
 }
