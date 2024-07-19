@@ -13,7 +13,7 @@ public class Starter2 : MonoBehaviour
     public float decelerationRate = 0.5f; // Rate at which the car decelerates
     public float friction = 0.1f; // Friction factor to slow down the car gradually
     public float drag = 0.1f; // Drag factor to reduce velocity over time
-    public float boosterFuel = 100f;
+    private float boosterFuel = 0f;
 
     // Fields for the first effect
     public GameObject effectPrefab; // Reference to the first effect prefab
@@ -112,35 +112,41 @@ public class Starter2 : MonoBehaviour
             isSliding = true;
         }
 
+        if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
+        {
+
+        }
+        else if (currVelocity > MAX_VELOCITY)
+        {
+            currVelocity = MAX_VELOCITY;
+
+            // Play max speed sound effect if not already playing
+            if (maxSpeedSound != null && !isMaxSpeedSoundPlaying)
+            {
+                PlaySound(maxSpeedSound);
+                isMaxSpeedSoundPlaying = true;
+            }
+
+            // Play max speed effect
+            InstantiateAndScaleEffect(maxSpeedEffectPrefab, maxSpeedEffectPositionOffset, maxSpeedEffectScale, effectDuration);
+        }
+        if (currVelocity > 70)
+        {
+            currVelocity = 70;
+        }
         // Calculate acceleration
         if (verticalInput != 0) // Accelerate when there is vertical input
         {
+            if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
+            {
+                currVelocity += 20f * Time.deltaTime;
+            }
             if (currVelocity < MAX_VELOCITY)
             {
                 currVelocity += (MAX_VELOCITY / TIME_TO_REACH) * Time.deltaTime;
 
-                if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
-                {
-                    currVelocity += 20f * Time.deltaTime;
-                }
-                else if (currVelocity > MAX_VELOCITY)
-                {
-                    currVelocity = MAX_VELOCITY;
+                
 
-                    // Play max speed sound effect if not already playing
-                    if (maxSpeedSound != null && !isMaxSpeedSoundPlaying)
-                    {
-                        PlaySound(maxSpeedSound);
-                        isMaxSpeedSoundPlaying = true;
-                    }
-
-                    // Play max speed effect
-                    InstantiateAndScaleEffect(maxSpeedEffectPrefab, maxSpeedEffectPositionOffset, maxSpeedEffectScale, effectDuration);
-                }
-                if (currVelocity > 100)
-                {
-                    currVelocity = 100;
-                }
             }
             slidingSpeed = currVelocity; // Update sliding speed
         }
@@ -176,7 +182,7 @@ public class Starter2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
         {
-            boosterFuel -= 15f * Time.deltaTime;
+            boosterFuel -= 50f * Time.deltaTime;
         }
 
         if (boosterFuel < 0)
@@ -364,5 +370,6 @@ public class Starter2 : MonoBehaviour
         {
             SceneManager.LoadScene("WinScreen");  
         }
+        boosterFuel = 100f;
     }
 }
