@@ -11,26 +11,39 @@ public class GameManager : MonoBehaviour
     public GameObject GameUI;
     public GameObject carCanvas;
     public GameObject Enemy;
+    public GameObject EscMenu;
     // Start is called before the first frame update
     void Start()
     {
         Enemy.SetActive(false);
-        redCar.SetActive(false); 
-        whiteCar.SetActive(false) ; 
-        greenCar.SetActive(false) ;
+        redCar.SetActive(false);
+        whiteCar.SetActive(false);
+        greenCar.SetActive(false);
+        EscMenu.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+            EscMenu.SetActive(true);
+            GameUI.SetActive(false);
+        }
     }
 
     public void MapSelect()
     {
         SceneManager.LoadScene("MapSelect");
     }
+    public void CloseMenu()
+    {
+        EscMenu.SetActive(false);
+        Time.timeScale = 1;
+        GameUI.SetActive(true);
+    }
 
-    public void ControlsSelect()
+public void ControlsSelect()
     {
         SceneManager.LoadScene("Controls");
     }
