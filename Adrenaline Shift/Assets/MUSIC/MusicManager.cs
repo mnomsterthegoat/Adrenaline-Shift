@@ -30,6 +30,7 @@ public class MusicManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log("Scene Loaded: " + scene.name); // Debug statement
         PlayMusicForScene(scene.name); // Play music based on the loaded scene
     }
 
@@ -53,17 +54,30 @@ public class MusicManager : MonoBehaviour
                 break;
         }
 
+        Debug.Log("Clip to play: " + (clipToPlay != null ? clipToPlay.name : "null")); // Debug statement
+
         if (clipToPlay != null)
         {
             if (audioSource.clip == clipToPlay && audioSource.isPlaying)
             {
                 // Do nothing, the correct music is already playing
+                Debug.Log("Music is already playing: " + clipToPlay.name); // Debug statement
                 return;
             }
             else
             {
                 audioSource.clip = clipToPlay;
                 audioSource.Play();
+                Debug.Log("Playing music: " + clipToPlay.name); // Debug statement
+            }
+        }
+        else
+        {
+            // Stop the music if there is no music for the current scene
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+                Debug.Log("Stopping music"); // Debug statement
             }
         }
     }
@@ -71,5 +85,6 @@ public class MusicManager : MonoBehaviour
     public void SetVolume(float volume)
     {
         audioSource.volume = volume; // Adjust the volume of the music
+        Debug.Log("Volume set to: " + volume); // Debug statement
     }
 }

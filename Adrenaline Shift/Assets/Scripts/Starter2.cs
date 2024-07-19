@@ -13,7 +13,7 @@ public class Starter2 : MonoBehaviour
     public float decelerationRate = 0.5f; // Rate at which the car decelerates
     public float friction = 0.1f; // Friction factor to slow down the car gradually
     public float drag = 0.1f; // Drag factor to reduce velocity over time
-    public float boosterFuel = 100f;
+    private float boosterFuel = 0f;
 
     // Fields for the first effect
     public GameObject effectPrefab; // Reference to the first effect prefab
@@ -58,6 +58,8 @@ public class Starter2 : MonoBehaviour
 
     public int laps = 0;
     public TextMeshProUGUI lapText;
+    public TextMeshProUGUI boosterLeft;
+    public GameObject reset;
 
     // Start is called before the first frame update
     void Start()
@@ -85,6 +87,7 @@ public class Starter2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        boosterLeft.text = "Adrenaline: " + boosterFuel;
         float verticalInput = 0f;
         if (Input.GetKey(KeyCode.S))
         {
@@ -109,35 +112,41 @@ public class Starter2 : MonoBehaviour
             isSliding = true;
         }
 
+        if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
+        {
+
+        }
+        else if (currVelocity > MAX_VELOCITY)
+        {
+            currVelocity = MAX_VELOCITY;
+
+            // Play max speed sound effect if not already playing
+            if (maxSpeedSound != null && !isMaxSpeedSoundPlaying)
+            {
+                PlaySound(maxSpeedSound);
+                isMaxSpeedSoundPlaying = true;
+            }
+
+            // Play max speed effect
+            InstantiateAndScaleEffect(maxSpeedEffectPrefab, maxSpeedEffectPositionOffset, maxSpeedEffectScale, effectDuration);
+        }
+        if (currVelocity > 70)
+        {
+            currVelocity = 70;
+        }
         // Calculate acceleration
         if (verticalInput != 0) // Accelerate when there is vertical input
         {
+            if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
+            {
+                currVelocity += 20f * Time.deltaTime;
+            }
             if (currVelocity < MAX_VELOCITY)
             {
                 currVelocity += (MAX_VELOCITY / TIME_TO_REACH) * Time.deltaTime;
 
-                if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
-                {
-                    currVelocity += 20f * Time.deltaTime;
-                }
-                else if (currVelocity > MAX_VELOCITY)
-                {
-                    currVelocity = MAX_VELOCITY;
+                
 
-                    // Play max speed sound effect if not already playing
-                    if (maxSpeedSound != null && !isMaxSpeedSoundPlaying)
-                    {
-                        PlaySound(maxSpeedSound);
-                        isMaxSpeedSoundPlaying = true;
-                    }
-
-                    // Play max speed effect
-                    InstantiateAndScaleEffect(maxSpeedEffectPrefab, maxSpeedEffectPositionOffset, maxSpeedEffectScale, effectDuration);
-                }
-                if (currVelocity > 100)
-                {
-                    currVelocity = 100;
-                }
             }
             slidingSpeed = currVelocity; // Update sliding speed
         }
@@ -173,7 +182,7 @@ public class Starter2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && boosterFuel > 0)
         {
-            boosterFuel -= 15f * Time.deltaTime;
+            boosterFuel -= 50f * Time.deltaTime;
         }
 
         if (boosterFuel < 0)
@@ -190,13 +199,24 @@ public class Starter2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S))
         {
-            Vector3 moveDirection = transform.forward * .3f * currVelocity;
+            Vector3 moveDirection = transform.forward * .5f * currVelocity;
             playerRigidBody.velocity = new Vector3(moveDirection.x, playerRigidBody.velocity.y, moveDirection.z);
         }
 
         if (Input.GetKey(KeyCode.Space) && Input.GetKey(KeyCode.W))
         {
             currVelocity -= Time.deltaTime * 15f;
+        }
+
+        if (verticalInput != -1f)
+        {
+            currVelocity -= 50f * Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            transform.position = reset.transform.position;
+            transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
         }
 
         // Apply rotation for turning
@@ -350,5 +370,6 @@ public class Starter2 : MonoBehaviour
         {
             SceneManager.LoadScene("WinScreen");  
         }
+        boosterFuel = 100f;
     }
 }

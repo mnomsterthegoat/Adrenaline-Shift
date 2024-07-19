@@ -18,13 +18,13 @@ EditorBuildSettings:
     path: Assets/Scenes/MapSelect.unity
     guid: 9d9cb3eb636d2a8488e796e2e1c0e584
   - enabled: 1
-    path: Assets/Scenes/devScene1234.unity
+    path: Assets/Scenes/Map3.unity
     guid: 592b3f7d28d78456e9037f03d360a2f5
   - enabled: 1
     path: Assets/Scenes/Map2.unity
     guid: 3247c09e6fae64f1fb662efc9593f411
   - enabled: 1
-    path: Assets/Scenes/map3.unity
+    path: Assets/Scenes/Map1.unity
     guid: 5877370e83f6b4f029ab21edda82a445
   - enabled: 1
     path: Assets/Scenes/LoseScreen.unity
